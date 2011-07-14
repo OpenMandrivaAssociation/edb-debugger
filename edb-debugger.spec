@@ -14,6 +14,7 @@ License:        GPLv2
 BuildRequires: qt4-devel >= 4.5
 BuildRequires: boost-devel >= 1.35
 BuildRequires: imagemagick
+BuildRequires: desktop-file-utils
 
 
 %description
