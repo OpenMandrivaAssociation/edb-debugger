@@ -70,3 +70,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_miconsdir}/%{_exe}.png
 %{_iconsdir}/%{_exe}.png
 
+
+
+%changelog
+* Thu Jul 14 2011 Angelo Naselli <anaselli@mandriva.org> 0.9.17-1mdv2011
++ Revision: 690008
+- import edb-debugger
+
