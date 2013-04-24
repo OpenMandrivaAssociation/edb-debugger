@@ -56,7 +56,6 @@ desktop-file-install --vendor="" \
 		     --dir $RPM_BUILD_ROOT%{_datadir}/applications \
 		     %{_exe}.desktop
 
-%postun
 
 %clean
 rm -rf $RPM_BUILD_ROOT
