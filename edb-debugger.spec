@@ -4,7 +4,7 @@
 Name:           edb-debugger
 Summary:        A free OllyDbg like debugger
 Version:        0.9.17
-Release:        %mkrel 1
+Release:        2
 Source0:        http://www.codef00.com/projects/%{_name}-%{version}.tgz
 URL:            http://www.codef00.com/projects
 
@@ -40,7 +40,6 @@ Once this is implemented in edisassm, it will return.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
 make install INSTALL_ROOT=%{buildroot}
 mkdir -p %{buildroot}{%{_miconsdir},%{_iconsdir},%{_liconsdir},%{_bindir},%{_libdir}}/
 install -c -m 0755 src/images/edb48-logo.png "$RPM_BUILD_ROOT%{_liconsdir}/%{_exe}.png"
@@ -57,8 +56,6 @@ desktop-file-install --vendor="" \
 		     %{_exe}.desktop
 
 
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
