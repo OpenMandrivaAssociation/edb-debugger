@@ -4,7 +4,7 @@
 Name:           edb-debugger
 Summary:        A free OllyDbg like debugger
 Version:        0.9.17
-Release:        2
+Release:        3
 Source0:        http://www.codef00.com/projects/%{_name}-%{version}.tgz
 URL:            http://www.codef00.com/projects
 
