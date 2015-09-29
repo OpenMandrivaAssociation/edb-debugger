@@ -1,21 +1,20 @@
-%define _name   debugger 
-%define _exe    edb
+%define _name debugger 
+%define _exe edb
 
-Name:           edb-debugger
-Summary:        A free OllyDbg like debugger
-Version:        0.9.17
-Release:        3
-Source0:        http://www.codef00.com/projects/%{_name}-%{version}.tgz
-URL:            http://www.codef00.com/projects
+Name:		edb-debugger
+Summary:	A free OllyDbg like debugger
+Version:	0.9.20
+Release:	1
+Source0:	http://www.codef00.com/projects/%{_name}-%{version}.tgz
+URL:		http://www.codef00.com/projects
 
-Group:          Development/Other
-License:        GPLv2 
+Group:		Development/Other
+License:	GPLv2 
 
-BuildRequires: qt4-devel >= 4.5
-BuildRequires: boost-devel >= 1.35
-BuildRequires: imagemagick
-BuildRequires: desktop-file-utils
-
+BuildRequires:	qt4-devel >= 4.5
+BuildRequires:	boost-devel >= 1.35
+BuildRequires:	imagemagick
+BuildRequires:	desktop-file-utils
 
 %description
 One of the main goals of this debugger is modularity. 
@@ -41,35 +40,21 @@ Once this is implemented in edisassm, it will return.
 
 %install
 make install INSTALL_ROOT=%{buildroot}
-mkdir -p %{buildroot}{%{_miconsdir},%{_iconsdir},%{_liconsdir},%{_bindir},%{_libdir}}/
-install -c -m 0755 src/images/edb48-logo.png "$RPM_BUILD_ROOT%{_liconsdir}/%{_exe}.png"
-%{__mv} %{buildroot}/bin/* %{buildroot}%{_bindir}/
-%{__mv} %{buildroot}/%{_lib}/* %{buildroot}%{_libdir}/
-%{__rm} -fr %{buildroot}/bin
-%{__rm} -fr %{buildroot}/%{_lib}
 
-convert src/images/edb48-logo.png -resize 32x32 $RPM_BUILD_ROOT%{_iconsdir}/%{_exe}.png
-convert src/images/edb48-logo.png -resize 16x16 $RPM_BUILD_ROOT%{_miconsdir}/%{_exe}.png
+mkdir -p %{buildroot}{%{_iconsdir}/hicolor/48x48/apps,%{_iconsdir}/hicolor/32x32/apps,%{_iconsdir}/hicolor/16x16/apps, %{_bindir},%{_libdir}}/
+install -c -m 0755 src/images/edb48-logo.png "%{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{_exe}.png"
+mv %{buildroot}/bin/* %{buildroot}%{_bindir}/
+mv %{buildroot}/%{_lib}/* %{buildroot}%{_libdir}/
+rm -fr %{buildroot}/bin
+rm -fr %{buildroot}/%{_lib}
 
-desktop-file-install --vendor="" \
-		     --dir $RPM_BUILD_ROOT%{_datadir}/applications \
-		     %{_exe}.desktop
+convert src/images/edb48-logo.png -resize 32x32 %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{_exe}.png
+convert src/images/edb48-logo.png -resize 16x16 %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{_exe}.png
 
-
+desktop-file-install --vendor="" --dir %{buildroot}%{_datadir}/applications %{_exe}.desktop
 
 %files
-%defattr(-,root,root,-)
 %{_bindir}/%{_exe}
 %{_libdir}/%{_exe}/*.so
 %{_datadir}/applications/%{_exe}.desktop
-%{_liconsdir}/%{_exe}.png
-%{_miconsdir}/%{_exe}.png
-%{_iconsdir}/%{_exe}.png
-
-
-
-%changelog
-* Thu Jul 14 2011 Angelo Naselli <anaselli@mandriva.org> 0.9.17-1mdv2011
-+ Revision: 690008
-- import edb-debugger
-
+%{_iconsdir}/hicolor/*/apps/%{_exe}.png
