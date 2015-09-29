@@ -41,7 +41,7 @@ Once this is implemented in edisassm, it will return.
 %install
 make install INSTALL_ROOT=%{buildroot}
 
-mkdir -p %{buildroot}/{%{_iconsdir}/hicolor/48x48/apps, %{_iconsdir}/hicolor/32x32/apps, %{_iconsdir}/hicolor/16x16/apps, %{_bindir}, %{_libdir}}/
+mkdir -p %{buildroot}{%{_iconsdir}/hicolor/48x48/apps,%{_iconsdir}/hicolor/32x32/apps,%{_iconsdir}/hicolor/16x16/apps,%{_bindir},%{_libdir}}/
 install -c -m 0755 src/images/edb48-logo.png "%{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{_exe}.png"
 mv %{buildroot}/bin/* %{buildroot}%{_bindir}/
 mv %{buildroot}/%{_lib}/* %{buildroot}%{_libdir}/
