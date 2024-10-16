@@ -6,7 +6,7 @@ Summary:	A free OllyDbg like debugger
 Version:	0.9.20
 Release:	1
 Source0:	http://www.codef00.com/projects/%{_name}-%{version}.tgz
-URL:		http://www.codef00.com/projects
+URL:		https://www.codef00.com/projects
 
 Group:		Development/Other
 License:	GPLv2 
